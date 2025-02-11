@@ -83,8 +83,7 @@ WSGI_APPLICATION = 'thesongexchange.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default':
-dj_database_url.parse(os.environ.get('postgresql://neondb_owner:npg_d7XAl6PLYvMc@ep-falling-darkness-a2rb6toq.eu-central-1.aws.neon.tech/arise_feed_donut_277130'))
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
