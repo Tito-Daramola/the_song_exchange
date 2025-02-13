@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
 
 <body>
     <h1>Welcome to The Song Exchange</h1>
+    <p> A blog where you can share and exchange your favorite songs with the world!</p>
     <h2>Posts:</h2>
     <ul>
         {% for post in post_list %}
@@ -17,6 +13,28 @@
         <li><p>{{ post.author }} - {{ post.created_on }} </p></li>
     </ul>
         {% endfor %}
+
+        {% for post in post_list %}
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.excerpt }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ post.song_name }} - {{ post.song_artist }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Read More</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                {{ post.author }} - {{ post.created_on }}
+            </div>
+        </div>
+        {% endfor %}
+
+
+
 </body>
 
-</html>
+{% endblock %}
