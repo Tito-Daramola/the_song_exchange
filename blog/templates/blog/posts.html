@@ -15,7 +15,7 @@
                     <li class="list-group-item">{{ post.song_name }} - {{ post.song_artist }}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Read More</a>
+                    <a href="{% url 'post_detail' post.slug %}" class="card-link btn btn-outline-secondary">Read</a>
                 </div>
                 <div class="card-footer text-body-secondary">
                     {{ post.author }} - {{ post.created_on }}
