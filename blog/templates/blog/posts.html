@@ -2,36 +2,29 @@
 {% block content %}
 
 <body>
-    <h1>Welcome to The Song Exchange</h1>
-    <p> A blog where you can share and exchange your favorite songs with the world!</p>
-    <h2>Posts:</h2>
-    <ul>
-        {% for post in post_list %}
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt }}</p>
-            <li> {{ post.song_name }} - {{ post.song_artist }}</li>
-        <li><p>{{ post.author }} - {{ post.created_on }} </p></li>
-    </ul>
-        {% endfor %}
-
-        {% for post in post_list %}
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.excerpt }}</p>
+    <div class="container mt-3">
+        <div class= "row d-flex justify-content-around mb-3">
+            {% for post in post_list %}
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.excerpt }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ post.song_name }} - {{ post.song_artist }}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Read More</a>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    {{ post.author }} - {{ post.created_on }}
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{ post.song_name }} - {{ post.song_artist }}</li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Read More</a>
-            </div>
-            <div class="card-footer text-body-secondary">
-                {{ post.author }} - {{ post.created_on }}
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    </div>
+
 
 
 
