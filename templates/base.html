@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Blog</a>
+                <a class="nav-link {% if request.path == home_url %}active{%endif%}" aria-current="page" href="{% url 'home' %}">Blog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Profile</a>
@@ -39,10 +39,27 @@
     </nav>
 
 
+    <section>
     {% block content %}
 
     {% endblock %}
-
+    </section>
+    <section>
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}"
+                    class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}"
+                    class="page-link">NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </section>
 
 
     <!-- footer -->
