@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+
+<h1>{{ profile.user.username }}'s Profile</h1>
+<p>Favorite Song: {{ profile.favorite_song }}</p>
+<p>Favorite Artist: {{ profile.favorite_artist }}</p>
+<h2>Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.title }} - {{ post.content }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
