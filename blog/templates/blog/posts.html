@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h1>Welcome to The Song Exchange</h1>
+    <h2>Posts:</h2>
+    <ul>
+        {% for post in post_list %}
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt }}</p>
+            <li> {{ post.song_name }} - {{ post.song_artist }}</li>
+        <li><p>{{ post.author }} - {{ post.created_on }} </p></li>
+    </ul>
+        {% endfor %}
 </body>
+
 </html>
