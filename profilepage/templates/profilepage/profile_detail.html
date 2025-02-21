@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ profile.user.username }}'s Profile</title>
+</head>
+<body>
+    <h1>{{ profile.user.username }}'s Profile</h1>
+    <p>Favourite Song: {{ profile.favourite_song }}</p>
+    <p>Favourite Artist: {{ profile.favourite_artist }}</p>
+    <p>Favourite Song URL: <a href="{{ profile.favourite_song_url }}">{{ profile.favourite_song_url }}</a></p>
+    <h2>Blog Posts</h2>
+    <ul>
+        {% for post in profile.posts.all %}
+            <li>{{ post.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
